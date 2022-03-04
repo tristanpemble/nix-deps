@@ -17,10 +17,11 @@
     in rec {
       defaultPackage = pkgs.buildGoApplication {
         pname = "nix-deps";
-        version = "0.3";
+        version = "0.4";
         src = ./.;
         modules = ./gomod2nix.toml;
         CGO_ENABLED = true;
+        hardeningDisable = ["format"];
       };
       devShell = pkgs.mkShell {
         buildInputs = [ pkgs.go pkgs.gomod2nix ];
