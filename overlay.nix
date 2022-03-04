@@ -1,5 +1,5 @@
 self: super:
 
 {
-  nix-deps = self.callPackage ./. {};
+  nix-deps = (import ./.).defaultPackage.${self.system};
 }
