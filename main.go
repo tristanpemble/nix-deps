@@ -80,6 +80,7 @@ func deps(graph *cgraph.Graph, allowed []string) (map[string][]string, error) {
 		if err != nil {
 			return nil, err
 		}
+		m[drv] = []string{}
 		for k, v := range depsOf(graph, node, allowed, path.Dir(drv), map[string]bool{}) {
 			if v {
 				m[drv] = append(m[drv], k)
